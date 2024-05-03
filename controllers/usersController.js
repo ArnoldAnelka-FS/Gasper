@@ -42,5 +42,16 @@ const userController = {
     }
   }
 };
+// Function to handle fetching user data
+getUsers: async (req, res) => {
+  try {
+    // Fetch user data from the database
+    const users = await User.find(); 
+    res.json({ users });
+  } catch (error) {
+    console.error('Error fetching user data:', error);
+    res.status(500).json({ error: 'Failed to fetch user data' });
+  }
+}
 
 module.exports = userController;
