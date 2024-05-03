@@ -19,8 +19,8 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Connect to MongoDB
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/Gasper', {
+mongoose
+.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
@@ -84,7 +84,7 @@ app.post('/api/signin', async (req, res) => {
     }
 
     // Generate JWT token with user ID and name in the payload
-    const token = jwt.sign({ userId: user._id, name: user.firstName }, 'secret_key', { expiresIn: '1h' });
+    const token = jwt.sign({ userId: user._id, name: user.firstName }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
     // Respond with token
     res.json({ token });
