@@ -13,7 +13,8 @@ const Order = require('./models/ordersModel');
 const ordersRouter = require('./routes/orders')
 const usersRouter = require('./routes/users');
 const indexRouter = require('./routes/index');
-
+const signupRouter = require('./routes/signin');
+  
 const app = express();
 
 app.use(cors({
@@ -34,6 +35,7 @@ mongoose
 app.use('/api/orders', ordersRouter);
 app.use('/api/users', usersRouter);
 app.use('/', indexRouter);
+app.use('/api/signin', signinRouter);
 
 app.get('/', (req, res) => {
   res.send('Hello, world!');
