@@ -1,5 +1,5 @@
 const allowedOrigins = [
-    'https://gasper-backend.onrender.com'
+    'https://gasper.onrender.com'
     
 ]
 
