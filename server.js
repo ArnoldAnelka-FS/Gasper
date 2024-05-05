@@ -14,6 +14,7 @@ const ordersRouter = require('./routes/orders')
 const usersRouter = require('./routes/users');
 const indexRouter = require('./routes/index');
 const signinRouter = require('./routes/signin');
+const dashboardRouter = require('./routes/dashboard');
   
 const app = express();
 
@@ -36,6 +37,7 @@ app.use('/api/orders', ordersRouter);
 app.use('/api/users', usersRouter);
 app.use('/', indexRouter);
 app.use('/api/signin', signinRouter);
+app.use('/api/dashboard', dashboardRouter);
 
 app.get('/', (req, res) => {
   res.send('Hello, world!');
